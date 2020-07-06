@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Vishal Chauhan]">
+<meta name="description" content="Introduction This is a first Python project I made and it was a fun experience. So, it is a basic blog website created using Flask and SQLite. Thousands of improvements can be done to make it more useful. The code is very concise and understandable. You can take a look at it.
+Here&amp;rsquo;s the app.py file:
+from flask import Flask, render_template, request, redirect, url_for from flask_sqlalchemy import SQLAlchemy from datetime import datetime app = Flask(__name__) app." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://vishal8826.github.io/posts/2020/02/blog-web-app/" />
+
+
+    <title>
+        
+            Blog Web App :: Vishal Chauhan 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://vishal8826.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://vishal8826.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://vishal8826.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://vishal8826.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://vishal8826.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://vishal8826.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://vishal8826.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Blog Web App">
+<meta itemprop="description" content="Introduction This is a first Python project I made and it was a fun experience. So, it is a basic blog website created using Flask and SQLite. Thousands of improvements can be done to make it more useful. The code is very concise and understandable. You can take a look at it.
+Here&rsquo;s the app.py file:
+from flask import Flask, render_template, request, redirect, url_for from flask_sqlalchemy import SQLAlchemy from datetime import datetime app = Flask(__name__) app.">
+
+
+<meta itemprop="datePublished" content="2020-02-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="162">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://vishal8826.github.io/"/>
+
+<meta name="twitter:title" content="Blog Web App"/>
+<meta name="twitter:description" content="Introduction This is a first Python project I made and it was a fun experience. So, it is a basic blog website created using Flask and SQLite. Thousands of improvements can be done to make it more useful. The code is very concise and understandable. You can take a look at it.
+Here&rsquo;s the app.py file:
+from flask import Flask, render_template, request, redirect, url_for from flask_sqlalchemy import SQLAlchemy from datetime import datetime app = Flask(__name__) app."/>
+
+
+
+    <meta property="og:title" content="Blog Web App" />
+<meta property="og:description" content="Introduction This is a first Python project I made and it was a fun experience. So, it is a basic blog website created using Flask and SQLite. Thousands of improvements can be done to make it more useful. The code is very concise and understandable. You can take a look at it.
+Here&rsquo;s the app.py file:
+from flask import Flask, render_template, request, redirect, url_for from flask_sqlalchemy import SQLAlchemy from datetime import datetime app = Flask(__name__) app." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vishal8826.github.io/posts/2020/02/blog-web-app/" />
+
+<meta property="og:image" content="https://vishal8826.github.io/" />
+<meta property="article:published_time" content="2020-02-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-28T00:00:00+00:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2020-02-28 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://vishal8826.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://vishal8826.github.io/posts/">Projects</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        One minute
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vishal8826.github.io/posts/2020/02/blog-web-app/">Blog Web App</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This is a first Python project I made and it was a fun experience. So, it is a basic blog website created using Flask and SQLite. Thousands of improvements can be done to make it more useful. The code is very concise and understandable. You can take a look at it.</p>
+
+<p>Here&rsquo;s the app.py file:</p>
+
+<pre><code>from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy 
+from datetime import datetime
+
+app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/vishal/python/projects/flask_blog-master/blog.db'
+
+db = SQLAlchemy(app)
+
+class Blogpost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50))
+    subtitle = db.Column(db.String(50))
+    author = db.Column(db.String(20))
+    date_posted = db.Column(db.DateTime)
+    content = db.Column(db.Text)
+
+@app.route('/')
+def index():
+    posts = Blogpost.query.order_by(Blogpost.date_posted.desc()).all()
+
+    return render_template('index.html', posts=posts)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/post/&lt;int:post_id&gt;')
+def post(post_id):
+    post = Blogpost.query.filter_by(id=post_id).one()
+
+    return render_template('post.html', post=post)
+
+@app.route('/add')
+def add():
+    return render_template('add.html')
+
+@app.route('/addpost', methods=['POST'])
+def addpost():
+    title = request.form['title']
+    subtitle = request.form['subtitle']
+    author = request.form['author']
+    content = request.form['content']
+
+    post = Blogpost(title=title, subtitle=subtitle, author=author, content=content, date_posted=datetime.now())
+
+    db.session.add(post)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        162 Words
+      </p>
+    </div>
+
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://vishal8826.github.io/">Vishal Chahuan</a></span>
+            
+            
+            <span> <a href="https://vishal8826.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://vishal8826.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

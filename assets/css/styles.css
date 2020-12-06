@@ -325,13 +325,7 @@ iframe {
   color: #999;
   font-weight: normal;
 }
-/* Git section */
-.github-graph {
-  margin-bottom: 30px;
-}
-.github-graph .js-calendar-graph-svg {
-  max-width: 100%;
-}
+
 .ghfeed {
   height: 600px;
 }
